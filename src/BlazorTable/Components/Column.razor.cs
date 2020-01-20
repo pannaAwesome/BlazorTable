@@ -48,6 +48,11 @@ namespace BlazorTable
         public bool Filterable { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public RenderFragment<IColumn<TableItem>> ColTemplate { get; set; }
+
+        /// <summary>
         /// Normal Item Template
         /// </summary>
         [Parameter]

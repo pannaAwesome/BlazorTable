@@ -73,6 +73,11 @@ namespace BlazorTable
         Expression<Func<TableItem, bool>> Filter { get; set; }
 
         /// <summary>
+        /// Column Filter Template
+        /// </summary>
+        RenderFragment<IColumn<TableItem>> ColTemplate { get; set; }
+
+        /// <summary>
         /// Edit Mode Item Template
         /// </summary>
         RenderFragment<TableItem> EditTemplate { get; set; }

@@ -5,7 +5,8 @@ namespace BlazorTable
 {
     public partial class FilterManager<TableItem>
     {
-        [CascadingParameter(Name = "Column")] public IColumn<TableItem> Column { get; set; }
+        [Parameter]
+        public IColumn<TableItem> Column { get; set; }
 
         [Parameter] public RenderFragment ChildContent { get; set; }
 

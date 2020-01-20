@@ -1,23 +1,25 @@
 ﻿@namespace BlazorTable
 @typeparam TableItem
 
-<CascadingValue Value="(IColumn<TableItem>)this" Name="Column">
-    <Popover Reference="@this.FilterRef" IsOpen="@FilterOpen" Placement="Placement.Bottom" DismissOnNextClick="false">
-        <h3 class="popover-header">Filter</h3>
-        <div class="popover-body">
-
-            <FilterManager TableItem="TableItem">
-                <StringFilter TableItem="TableItem" />
-                <BooleanFilter TableItem="TableItem" />
-                <NumberFilter TableItem="TableItem" />
-                <DateFilter TableItem="TableItem" />
-                <EnumFilter TableItem="TableItem" />
-                @if (this.CustomIFilters != null)
-                {
-                    this.CustomIFilters(this);
-                }
-            </FilterManager>
-
+@{
+ColTemplate = (col) => 
+    @<div class="BTPopup">
+        <div class="BTPopupContent @(col.FilterOpen ? "show" : "")">
+            <h3 class="">Filter</h3>
+            <div class="">
+                <FilterManager TableItem="TableItem" Column="col">
+                    <StringFilter TableItem="TableItem" />
+                    <BooleanFilter TableItem="TableItem" />
+                    <NumberFilter TableItem="TableItem" />
+                    <DateFilter TableItem="TableItem" />
+                    <EnumFilter TableItem="TableItem" />
+                    @if (col.CustomIFilters != null)
+                    {
+                        col.CustomIFilters(col);
+                    }
+                </FilterManager>
+            </div>
         </div>
-    </Popover>
-</CascadingValue>
+    </div>
+;
+}
