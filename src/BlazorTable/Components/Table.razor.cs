@@ -19,13 +19,13 @@ namespace BlazorTable
         /// Table CSS Class (Defaults to Bootstrap 4)
         /// </summary>
         [Parameter]
-        public string TableClass { get; set; } = "table table-striped table-bordered table-hover table-sm";
+        public string TableClass { get; set; } = "table table-hover";
 
         /// <summary>
         /// Table Head Class (Defaults to Bootstrap 4)
         /// </summary>
         [Parameter]
-        public string TableHeadClass { get; set; } = "thead-light text-dark";
+        public string TableHeadClass { get; set; } = "blue-table-header";
 
         /// <summary>
         /// Table Body Class
@@ -456,6 +456,12 @@ namespace BlazorTable
         /// </summary>
         [Parameter]
         public bool ShowSearchBar { get; set; }
+
+        /// <summary>
+        /// Shows Deletion Button above the table
+        /// </summary>
+        [Parameter]
+        public bool ShowDeleteButton { get; set; }
 
         /// <summary>
         /// Show or hide table footer. Hide by default.

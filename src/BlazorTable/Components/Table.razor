@@ -13,7 +13,7 @@
             {
                 <thead role="search">
                     <tr>
-                        <th colspan="@columnCount"><input type="text" class="form-control form-control-sm float-right" style="width:33%" value="@GlobalSearch" @onchange="@(x => { GlobalSearch = x.Value.ToString(); Update(); })" placeholder="Global Search..." /></th>
+                        <th colspan="@columnCount"><input type="text" class="form-control float-right" style="width:33%" value="@GlobalSearch" @onchange="@(x => { GlobalSearch = x.Value.ToString(); Update(); })" placeholder="Search..." /></th>
                     </tr>
                 </thead>
             }
@@ -41,10 +41,11 @@
                                 @if (column.SortColumn)
                                 {
                                     if (column.SortDescending)
-                                    { <span aria-hidden="true"><img src="_content/BlazorTable/images/sort-desc.png" /></span> }
+                                    {<span aria-hidden="true"><img class="table-arrows" src="_content/BlazorTable/images/sort-desc.png" /></span> }
                                     else
-                                    { <span aria-hidden="true"><img src="_content/BlazorTable/images/sort-asc.png" /></span> }
-                                }
+                                    { <span aria-hidden="true"><img class="table-arrows" src="_content/BlazorTable/images/sort-asc.png" /></span>}
+                                }else
+                                { <span aria-hidden="true"><img class="table-arrows" src="_content/BlazorTable/images/dont_sort.png" /></span>}
 
                                 @if (column.Filterable)
                                 {
